@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ic-contract-sender
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: "localhost:30179"
+        bindings:
+          contract-data-out:
+            producer:
+              configuration:
+                key.serializer: org.springframework.kafka.support.serializer.ToStringSerializer
+                value.serializer: org.springframework.kafka.support.serializer.JsonSerializer
+                spring.json.add.type.headers: false
+      bindings:
+        contract-data-out:
+          producer:
+            useNativeEncoding: true
+          destination: contract-topic
