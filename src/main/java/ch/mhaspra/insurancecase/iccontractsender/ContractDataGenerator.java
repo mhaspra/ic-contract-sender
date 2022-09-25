@@ -15,7 +15,7 @@ public class ContractDataGenerator {
         this.contractDataStreamBridge = contractDataStreamBridge;
     }
 
-    @Scheduled(initialDelay = 5000L, fixedRate = 1000L)
+    @Scheduled(initialDelay = 5000L, fixedRate = 200L)
     void send(){
         var partnerNr = ThreadLocalRandom.current().nextLong(1, 21);
         var contractNr = partnerNr * 100 + ThreadLocalRandom.current().nextLong(1, 6);
